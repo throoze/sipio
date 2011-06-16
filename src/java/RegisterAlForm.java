@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 
+import java.math.BigDecimal;
+import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -18,22 +20,62 @@ public class RegisterAlForm extends org.apache.struts.action.ActionForm {
     private String nombre;
     private String apellido;
     private String cedula;
-    private String direccion;
     private String correo;
-    private String telefono;
+    private String sexo;
+    private String nombrePlantel;
+    private BigDecimal promedio;
     private String carrera1;
     private String carrera2;
     private String carrera3;
-    private String sexo;
-    private int promedio;
+    private String error0;
+    private String error1;
+    private static final char[] alfanumerico = new char[36];
+    private final Random random = new Random();
+    private final char[] buf = new char[6];
 
-  public int getPromedio() {
-    return promedio;
-  }
+    static {
+        for (int i = 0; i < 10; i++) {
+            alfanumerico[i] = (char) ('0' + i);
+        }
+        for (int i = 10; i < 36; i++) {
+            alfanumerico[i] = (char) ('a' + i - 10);
+        }
+    }
 
-  public void setPromedio(int promedio) {
-    this.promedio = promedio;
-  }
+    public void cleanErrors() {
+        this.error0 = null;
+    }
+
+    public String getError0() {
+        return error0;
+    }
+
+    public void setError0(String error0) {
+        this.error0 = error0;
+    }
+    
+    public String getError1() {
+        return error1;
+    }
+
+    public void setError1(String error1) {
+        this.error1 = error1;
+    }
+    public String getNombrePlantel() {
+        return nombrePlantel;
+    }
+
+    public void setNombrePlantel(String plantel) {
+        this.nombrePlantel = plantel;
+    }
+
+    public BigDecimal getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(BigDecimal promedio) {
+        this.promedio = promedio;
+    }
 
     public String getApellido() {
         return apellido;
@@ -83,14 +125,6 @@ public class RegisterAlForm extends org.apache.struts.action.ActionForm {
         this.correo = correo;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -107,15 +141,13 @@ public class RegisterAlForm extends org.apache.struts.action.ActionForm {
         this.sexo = sexo;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String generarPass() {
+        for (int i = 0; i < 6; ++i) {
+            buf[i] = alfanumerico[random.nextInt(alfanumerico.length)];
+        }
+        return new String(buf);
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.

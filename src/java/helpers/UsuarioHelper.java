@@ -6,6 +6,7 @@ package helpers;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import pio.hibernate.EstudianteBachillerato;
 import pio.hibernate.HibernateUtil;
 import pio.hibernate.Usuario;
 import pio.hibernate.PerfilUsuario;
@@ -57,4 +58,12 @@ public class UsuarioHelper {
     session.save((Object)PUser);
     tx.commit();
   }
+  
+  public void addUser(Usuario User, PerfilUsuario PUser, EstudianteBachillerato EstB) {
+        org.hibernate.Transaction tx = session.beginTransaction();
+        session.save((Object) User);
+        session.save((Object) PUser);
+        session.save((Object) EstB);
+        tx.commit();
+    }
 }
