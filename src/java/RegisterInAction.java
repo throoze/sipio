@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import pio.hibernate.Plantel;
+import helpers.PlantelHelper;
 
 /**
  *
@@ -74,13 +76,13 @@ public class RegisterInAction extends org.apache.struts.action.Action {
     String[] nivelEmbarazada = beanForm.getNivelEmbarazada();
     String[] verbalComEsc = beanForm.getVerbalComEsc();
     String[] danhoInstalacionCasos = beanForm.getDanhoInstalacionCasos();
+    String[] nivelArma = beanForm.getNivelArma();
     String edfe = beanForm.getEdfe();
     String usoArmasBlanca = beanForm.getUsoArmasBlanca();
     String usoArmasFuego = beanForm.getUsoArmasFuego();
     String usoObjCont = beanForm.getUsoObjCont();
     String consecABAF = beanForm.getConsecABAF();
     String tipoDanho = beanForm.getTipoDanho();
-    String[] nivelArma = beanForm.getNivelArma();
     String regArg = beanForm.getRegArg();
     String accTom = beanForm.getAccTom();
     String causasProb = beanForm.getCausasProb();
@@ -95,16 +97,16 @@ public class RegisterInAction extends org.apache.struts.action.Action {
     String verbalHaciaComEsc = beanForm.getVerbalHaciaComEsc();
     String medidasVerbalComEsc = beanForm.getMedidasVerbalComEsc();
     String danhoInstalacion = beanForm.getDanhoInstalacion();
-    int numAsistentes = beanForm.getNumAsistentes();
-    int numLiceo = beanForm.getNumLiceo();
-    int numEmbarazadas = beanForm.getNumEmbarazadas();
-    int banhoCant = beanForm.getBanhoCant();
-    int cafetCant = beanForm.getCafetCant();
-    int comeCant = beanForm.getComeCant();
-    int bebeCant = beanForm.getBebeCant();
-    int aulaCant = beanForm.getAulaCant();
-    int labCant = beanForm.getLabCant();
-    int canchCant = beanForm.getCanchCant();
+    String numAsistentes = beanForm.getNumAsistentes();
+    String numLiceo = beanForm.getNumLiceo();
+    String numEmbarazadas = beanForm.getNumEmbarazadas();
+    String banhoCant = beanForm.getBanhoCant();
+    String cafetCant = beanForm.getCafetCant();
+    String comeCant = beanForm.getComeCant();
+    String bebeCant = beanForm.getBebeCant();
+    String aulaCant = beanForm.getAulaCant();
+    String labCant = beanForm.getLabCant();
+    String canchCant = beanForm.getCanchCant();
     String oriInd = beanForm.getOriInd();
     String oriFam = beanForm.getOriFam();
     String remProg = beanForm.getRemProg();
@@ -119,58 +121,84 @@ public class RegisterInAction extends org.apache.struts.action.Action {
     boolean err = false;
 
     if (nins.equals("") || tlf.equals("") || email.equals("") || dir.equals("")
-            || instituto.equals("") || distEsc.equals("") || mencionDiv.equals("")
+            || instituto == null || distEsc.equals("") || mencionDiv.equals("")
             || nombreDir.equals("") || tlfDir.equals("") || celDir.equals("")
             || emailDir.equals("") || nombreCoord.equals("") || emailCoord.equals("")
-            || tlfCoord.equals("") || celCoord.equals("") || asignaturasProf.equals("")
-            || matInst.equals("") || oriInd.equals("") || oriFam.equals("")
-            || remProg.equals("") || oriPerSoc.equals("") || edfe.equals("")
-            || usoArmasBlanca.equals("") || usoArmasFuego.equals("") || usoObjCont.equals("")
-            || presAlumno.equals("") || danhoInstalacion.equals("") || condAulas.equals("")
-            || condBan.equals("") || condBeb.equals("") || condCaf.equals("") || condCom.equals("")
-            || condCan.equals("") || condLabs.equals("")) {
+            || tlfCoord.equals("") || celCoord.equals("")) {
       err = true;
+      return mapping.findForward(FAILURE);
     }
 
-    if (banhoCant < 0 || comeCant < 0 || cafetCant < 0 || bebeCant < 0 || aulaCant < 0
-            || labCant < 0 || canchCant < 0 || numAsistentes < 0 || numEmbarazadas < 0
-            || numLiceo < 0) {
+    if (asignaturasProf != null && asignaturasProf.equals("no")
+            && (descAsignaturasProf.equals("")
+            || descAsignaturasProf.equals("Si es negativa la respuesta: Cual asignatura? y por que?"))
+            && (nivelAsignatura == null || nivelAsignatura.length <= 0)) {
       err = true;
+      return mapping.findForward(FAILURE);
     }
 
-    if ((asignaturasProf.equals("no") && (descAsignaturasProf.equals("")
-            || nivelAsignatura.length <= 0)) || (numEmbarazadas > 0
-            && (edadEmbarazada.length <= 0 || nivelEmbarazada.length <= 0))) {
+    if (!numEmbarazadas.equals("") && Integer.parseInt(numEmbarazadas) < 0
+            && ((edadEmbarazada == null || edadEmbarazada.length <= 0)
+            || nivelEmbarazada == null || nivelEmbarazada.length <= 0)) {
       err = true;
+      return mapping.findForward(FAILURE);
     }
 
-    if ((remProg.equals("si") && remProgCuales.equals(""))
-            || (oriCoord.equals("si") && oriCoordCuales.equals(""))
-            || (oriSinLucro.equals("si") && oriSinLucroCuales.equals(""))) {
-      err = true;
+    if (remProg != null && remProg.equals("si") && (remProgCuales.equals("")
+            || remProgCuales.equals("Cuales"))) {
+      return mapping.findForward(FAILURE);
     }
 
-    if (edfe.equals("si") && (tipoDanho.equals("") || usoArmasBlanca.equals("")
-            || usoArmasFuego.equals("") || usoObjCont.equals("") || consecABAF.equals("")
-            || nivelArma.length <= 0 || regArg.equals("") || accTom.equals("")
-            || sexoViolento.equals(""))) {
-      err = true;
+    if (oriPerSoc != null && oriPerSoc.equals("si") && (nivelOriPerSoc == null
+            || oriCoord == null || oriSinLucro == null)) {
+      return mapping.findForward(FAILURE);
     }
 
-    if (aps.equals("si") && apsCuales.equals("")) {
-      err = true;
+    if ((nivelOriPerSoc != null && nivelOriPerSoc.equals("si")
+            && (nivelOriPerSocCuales.equals("")
+            || nivelOriPerSocCuales.equals("Cuales")))
+            || (oriCoord != null && oriCoord.equals("si")
+            && (oriCoordCuales.equals("") || oriCoordCuales.equals("Cuales")))
+            || (oriSinLucro != null && oriSinLucro.equals("si")
+            && (oriSinLucroCuales.equals("") || oriSinLucroCuales.equals("Cuales")))) {
+      return mapping.findForward(FAILURE);
     }
 
-    if ((presAlumno.equals("si") && (verbalForma.length <= 0 || medidasVerbal.equals(""))) || (verbalHaciaProf.equals("si") && medidasVerbalProf.equals(""))
-            || (verbalHaciaComEsc.equals("si") && (verbalComEsc.length <= 0
-            || medidasVerbalComEsc.equals("")))) {
-      err = true;
+    if (edfe != null && edfe.equals("si") && ((tipoDanho.equals("")
+            || tipoDanho.equals("Tipo de daño")) || usoArmasBlanca == null
+            || usoArmasFuego == null || usoObjCont == null)) {
+      return mapping.findForward(FAILURE);
     }
 
-    if (danhoInstalacion.equals("si") && danhoInstalacionCasos.length <= 0) {
-      err = true;
+    if (edfe != null && edfe.equals("si") && ((nivelArma == null
+            || nivelArma.length <= 0) || (regArg == null || (regArg.equals("si")
+            && accTom.equals(""))) || (sexoViolento == null)
+            || (aps == null || (aps.equals("si") && (apsCuales.equals("")
+            || apsCuales.equals("Cuales")))))) {
+      return mapping.findForward(FAILURE);
     }
-    if (err) {
+
+    if (presAlumno != null && presAlumno.equals("si") && ((verbalForma == null
+            || verbalForma.length <= 0) || (medidasVerbal.equals("")
+            || medidasVerbal.equals("Medidas tomadas")) || (verbalHaciaProf == null
+            || (verbalHaciaProf.equals("si") && (medidasVerbalProf.equals("")
+            || medidasVerbalProf.equals("Medidas tomadas"))) || (verbalHaciaComEsc == null
+            || (verbalHaciaComEsc.equals("si") && ((verbalComEsc == null
+            || verbalComEsc.length <= 0) || (medidasVerbalComEsc.equals("")
+            || medidasVerbalComEsc.equals("Medidas tomadas")))))))) {
+      return mapping.findForward(FAILURE);
+    }
+
+    if (danhoInstalacion != null && danhoInstalacion.equals("si")
+            && (danhoInstalacionCasos == null || danhoInstalacionCasos.length <= 0)) {
+      return mapping.findForward(FAILURE);
+    }
+    int idplantel = 1;
+    PlantelHelper plh = new PlantelHelper();
+    if (!plh.existePlantel(nins)) {
+      Plantel pl = new Plantel(idplantel, nins, instituto, Integer.parseInt(numLiceo), dir, nombreDir, nombreCoord);
+      plh.agrPlantel(pl);
+    } else {
       return mapping.findForward(FAILURE);
     }
     return mapping.findForward(SUCCESS);

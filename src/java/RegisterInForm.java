@@ -30,8 +30,8 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
   private String[] verbalComEsc = {};
   private String[] danhoInstalacionCasos = {};
   private String[] verbalForma = {};
-  private int numAsistentes,numLiceo, numEmbarazadas;
-  private int banhoCant, cafetCant, comeCant, bebeCant, aulaCant, labCant, canchCant;
+  private String numAsistentes,numLiceo, numEmbarazadas;
+  private String banhoCant, cafetCant, comeCant, bebeCant, aulaCant, labCant, canchCant;
   private String edfe,usoArmasBlanca,usoArmasFuego,usoObjCont,consecABAF,tipoDanho;
   private String regArg,accTom,causasProb,sexoViolento,aps,apsCuales;
   private String presAlumno,medidasVerbal,verbalHaciaProf,medidasVerbalProf;
@@ -345,11 +345,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.descAsignaturasProf = descAsignaturasProf;
   }
 
-  public int getNumLiceo() {
+  public String getNumLiceo() {
     return numLiceo;
   }
 
-  public void setNumLiceo(int numLiceo) {
+  public void setNumLiceo(String numLiceo) {
     this.numLiceo = numLiceo;
   }
   
@@ -369,19 +369,19 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.nivelAsignatura = nivelAsignatura;
   }
 
-  public int getNumAsistentes() {
+  public String getNumAsistentes() {
     return numAsistentes;
   }
 
-  public void setNumAsistentes(int numAsistentes) {
+  public void setNumAsistentes(String numAsistentes) {
     this.numAsistentes = numAsistentes;
   }
 
-  public int getNumEmbarazadas() {
+  public String getNumEmbarazadas() {
     return numEmbarazadas;
   }
 
-  public void setNumEmbarazadas(int numEmbarazadas) {
+  public void setNumEmbarazadas(String numEmbarazadas) {
     this.numEmbarazadas = numEmbarazadas;
   }
 
@@ -449,11 +449,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.NIns = NIns;
   }
 
-  public int getAulaCant() {
+  public String getAulaCant() {
     return aulaCant;
   }
 
-  public void setAulaCant(int aulaCant) {
+  public void setAulaCant(String aulaCant) {
     this.aulaCant = aulaCant;
   }
 
@@ -473,19 +473,19 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.banho = banho;
   }
 
-  public int getBanhoCant() {
+  public String getBanhoCant() {
     return banhoCant;
   }
 
-  public void setBanhoCant(int banhoCant) {
+  public void setBanhoCant(String banhoCant) {
     this.banhoCant = banhoCant;
   }
 
-  public int getBebeCant() {
+  public String getBebeCant() {
     return bebeCant;
   }
 
-  public void setBebeCant(int bebeCant) {
+  public void setBebeCant(String bebeCant) {
     this.bebeCant = bebeCant;
   }
 
@@ -497,11 +497,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.bebederos = bebederos;
   }
 
-  public int getCafetCant() {
+  public String getCafetCant() {
     return cafetCant;
   }
 
-  public void setCafetCant(int cafetCant) {
+  public void setCafetCant(String cafetCant) {
     this.cafetCant = cafetCant;
   }
 
@@ -513,11 +513,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.cafetines = cafetines;
   }
 
-  public int getCanchCant() {
+  public String getCanchCant() {
     return canchCant;
   }
 
-  public void setCanchCant(int canchCant) {
+  public void setCanchCant(String canchCant) {
     this.canchCant = canchCant;
   }
 
@@ -545,11 +545,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.celDir = celDir;
   }
 
-  public int getComeCant() {
+  public String getComeCant() {
     return comeCant;
   }
 
-  public void setComeCant(int comeCant) {
+  public void setComeCant(String comeCant) {
     this.comeCant = comeCant;
   }
 
@@ -617,11 +617,11 @@ public class RegisterInForm extends org.apache.struts.action.ActionForm {
     this.instituto = instituto;
   }
 
-  public int getLabCant() {
+  public String getLabCant() {
     return labCant;
   }
 
-  public void setLabCant(int labCant) {
+  public void setLabCant(String labCant) {
     this.labCant = labCant;
   }
 

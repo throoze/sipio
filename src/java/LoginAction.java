@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 
+import helpers.UsuarioHelper;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

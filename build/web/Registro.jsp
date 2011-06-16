@@ -14,6 +14,22 @@
     <%
       String uname = (String) session.getAttribute("uname");
     %>
+    <script type="text/javascript">
+      function setValue(field)
+      {
+        if(''!=field.defaultValue)
+        {
+          if(field.value==field.defaultValue)
+          {
+            field.value='';
+          }
+          else if(''==field.value)
+          {
+            field.value=field.defaultValue;
+          }
+        }
+      }
+    </script>
     <meta name="keywords" content="" /> 
     <meta name="description" content="" /> 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
@@ -275,6 +291,8 @@
                         <html:radio property="asignaturasProf" value="no"/> no
                       </td>
                       <td><html:textarea property="descAsignaturasProf" 
+                                     onblur="setValue(this)"
+                                     onfocus="setValue(this)"
                                      value="Si es negativa la respuesta: Cual asignatura? y por que?"/></td>
                     </tr>
                     <tr>
@@ -357,7 +375,8 @@
                     </tr>
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="remProgCuales" value="Cuales"/>
+                        <html:textarea property="remProgCuales" value="Cuales" onblur="setValue(this)"
+                                       onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -380,7 +399,8 @@
                     </tr>                    
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="nivelOriPerSocCuales" value="Cuales"/>
+                        <html:textarea property="nivelOriPerSocCuales" value="Cuales" 
+                                       onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -392,7 +412,8 @@
                     </tr>                    
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="oriCoordCuales" value="Cuales"/>
+                        <html:textarea property="oriCoordCuales" value="Cuales" 
+                                       onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -404,7 +425,8 @@
                     </tr>                    
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="oriSinLucroCuales" value="Cuales"/>
+                        <html:textarea property="oriSinLucroCuales" value="Cuales" 
+                                       onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                   </tbody>
@@ -425,7 +447,8 @@
                     </tr>
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="tipoDanho" value="Tipo de daño"/>
+                        <html:textarea property="tipoDanho" value="Tipo de daño" 
+                                       onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -451,7 +474,8 @@
                     </tr> 
                     <tr>
                       <td colspan="2">
-                        <html:textarea property="consecABAF" value="Consecuencias"/>
+                        <html:textarea property="consecABAF" value="Consecuencias" 
+                                       onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -473,7 +497,8 @@
                       </td>
                     </tr>
                     <tr>
-                      <td><html:textarea property="accTom" value="Acciones Tomadas"/>
+                      <td><html:textarea property="accTom" value="Acciones Tomadas"
+                                     onblur="setValue(this)" onfocus="setValue(this)"/>
                       </td>
                     </tr>
                     <tr>
@@ -504,7 +529,8 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="2"><html:textarea property="apsCuales" value="Cuales"/></td>
+                      <td colspan="2"><html:textarea property="apsCuales" value="Cuales"
+                                     onblur="setValue(this)" onfocus="setValue(this)"/></td>
                     </tr>
                     <tr>
                       <td colspan="2">Violencia verbal</td>
@@ -526,7 +552,9 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="2"><html:textarea property="medidasVerbal" value="Medidas tomadas"/></td>
+                      <td colspan="2"><html:textarea property="medidasVerbal" 
+                                     value="Medidas tomadas" onfocus="setValue(this)"
+                                     onblur="setValue(this)"/></td>
                     </tr>
                     <tr>
                       <td>Hacia los profesores:</td>
@@ -536,7 +564,9 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="2"><html:textarea property="medidasVerbalProf" value="Medidas tomadas"/></td>
+                      <td colspan="2"><html:textarea property="medidasVerbalProf" 
+                                     value="Medidas tomadas" onblur="setValue(this)"
+                                     onfocus="setValue(this)"/></td>
                     </tr>
                     <tr>
                       <td>Hacia otros miembros de la comunidad escolar:</td>
@@ -552,7 +582,9 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="2"><html:textarea property="medidasVerbalComEsc" value="Medidas tomadas"/></td>
+                      <td colspan="2"><html:textarea property="medidasVerbalComEsc" 
+                                     value="Medidas tomadas" onblur="setValue(this)"
+                                     onfocus="setValue(this)"/></td>
                     </tr>
                     <tr>
                       <th colspan="2">Daño a las instalaciones del plantel</th>
