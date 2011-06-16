@@ -83,7 +83,9 @@
           <h1> 
             Principal de Gestion de Estudiantes
           </h1>
-          <a href="registroAl.jsp">Registrar Estudiante</a><br/>
+            <html:link styleClass="usbsheet.css" action="/cargarplanteles">
+                        Registrar Estudiante
+                    </html:link> <br/> 
           <a href="#">Registrar Estudiantes (Archivo Excel)</a><br/>
           <a href="#">Consultar Estudiante</a>
         </div> 

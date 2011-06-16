@@ -84,7 +84,9 @@
             Principal de Gestion de Planteles
           </h1>
           <a href="Registro.jsp">Registrar Plantel</a><br/>
-          <a href="#">Listar Planteles</a>
+          <html:link styleClass="usbsheet.css" action="/listarplanteles">
+                        Listar Planteles
+          </html:link>
         </div> 
       </div> 
       <!-- end #page --> 

@@ -7,6 +7,7 @@
   <head>
     <%
       String uname = (String) session.getAttribute("uname");
+      String pl = (String) session.getAttribute("plant");
     %>
     <meta name="keywords" content="" /> 
     <meta name="description" content="" /> 
@@ -23,7 +24,7 @@
         <div id="title"><h1>Programa Igualdad de Oportunidades - USB</h1></div> 
         <div id="username"> 
           <h3>Bienvenido 
-            <%=uname%>
+            <%=uname%> <%=pl%>
           </h3>
         </div>
       </div> 

@@ -3,8 +3,11 @@
  * and open the template in the editor.
  */
 package helpers;
+import org.hibernate.cfg.Configuration;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import pio.hibernate.HibernateUtil;
 import pio.hibernate.Plantel;
 
@@ -37,4 +40,35 @@ public class PlantelHelper {
     session.save((Object)pl);
     tx.commit();
   }
+  
+ public List listarPlanteles() {
+        Plantel pl = null;
+        SessionFactory sf;
+        List planteles = null;
+
+        try {
+            sf = new Configuration().configure().buildSessionFactory();
+            session = sf.openSession();
+            session.beginTransaction();
+            String q = "from Plantel as pl";
+            planteles = session.createQuery(q).list();
+            session.close();
+            return planteles;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Plantel getPlantel(String nombre) {
+        Plantel pl = null;
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from Plantel as pl where pl.nombrePlantel='" + nombre + "'");
+            pl = (Plantel) q.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pl;
+    }
 }

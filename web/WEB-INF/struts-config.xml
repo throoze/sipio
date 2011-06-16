@@ -6,52 +6,59 @@
 
 
 <struts-config>
-  <form-beans>
-    <form-bean name="RegisterUsrForm" type="RegisterUsrForm"/>
-    <form-bean name="RegisterInForm" type="RegisterInForm"/>
-    <form-bean name="RegisterAlForm" type="RegisterAlForm"/>
-    <form-bean name="LoginForm" type="LoginForm"/>
+    <form-beans>
+        <form-bean name="ListarPlantForm" type="ListarPlantForm"/>
+        <form-bean name="RegisterUsrForm" type="RegisterUsrForm"/>
+        <form-bean name="RegisterInForm" type="RegisterInForm"/>
+        <form-bean name="RegisterAlForm" type="RegisterAlForm"/>
+        <form-bean name="LoginForm" type="LoginForm"/>
     
-  </form-beans>
+    </form-beans>
     
-  <global-exceptions>
+    <global-exceptions>
     
-  </global-exceptions>
+    </global-exceptions>
 
-  <global-forwards>
-    <forward name="welcome"  path="/Welcome.do"/>
-  </global-forwards>
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
 
-  <action-mappings>
-    <action name="LoginForm" path="/login" scope="request" type="LoginAction" validate="false">
-      <forward name="success" path="/index.jsp"/>
-      <forward name="failure" path="/HomeLogin.jsp"/>            
-    </action>
+    <action-mappings>
+        <action name="LoginForm" path="/login" scope="request" type="LoginAction" validate="false">
+            <forward name="success" path="/index.jsp"/>
+            <forward name="failure" path="/HomeLogin.jsp"/>            
+        </action>
         
-    <action name="LoginForm" path="/logout" scope="request" type="LogoutAction" validate="false">
-      <forward name="logout" path="/index.jsp"/>
-    </action>
+        <action name="LoginForm" path="/logout" scope="request" type="LogoutAction" validate="false">
+            <forward name="logout" path="/index.jsp"/>
+        </action>
         
-    <action name="RegisterAlForm" path="/registerAl" scope="request" type="RegisterAlAction" validate="false">
-      <forward name="success" path="/registerSuccess.jsp"/>
-      <forward name="failure" path="/regitroAl.jsp"/>
-    </action>
+        <action name="RegisterAlForm" path="/registerAl" scope="request" type="RegisterAlAction" validate="false">
+            <forward name="success" path="/registerSuccess.jsp"/>
+            <forward name="failure" path="/regitroAl.jsp"/>
+        </action>
         
-    <action name="RegisterInForm" path="/registerIn" scope="request" type="RegisterInAction" validate="false">
-      <forward name="success" path="/registerSuccess.jsp"/>
-      <forward name="failure" path="/Registro.jsp"/>
-    </action>
-    <action  name="RegisterUsrForm" path="/registerUs" scope="request" type="RegisterUsrAction" validate="false">
-      <forward name="success" path="/registerSuccess.jsp"/>
-      <forward name="failure" path="/registroUsr.jsp"/>
-    </action>
+        <action name="RegisterInForm" path="/registerIn" scope="request" type="RegisterInAction" validate="false">
+            <forward name="success" path="/registerSuccess.jsp"/>
+            <forward name="failure" path="/Registro.jsp"/>
+        </action>
+        <action  name="RegisterUsrForm" path="/registerUs" scope="request" type="RegisterUsrAction" validate="false">
+            <forward name="success" path="/registerSuccess.jsp"/>
+            <forward name="failure" path="/registroUsr.jsp"/>
+        </action>
+        <action name="ListarPlantForm" path="/cargarplanteles" scope="request" type="ListarPlantAction" validate="false">
+            <forward name="success" path="/registroAl.jsp"/>
+        </action>
+        <action name="ListarPlantForm" path="/listarplanteles" scope="request" type="ListarPlantAction" validate="false">
+            <forward name="success" path="/listarPlanteles.jsp"/>
+        </action>
       
         
-  </action-mappings>
+    </action-mappings>
     
-  <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-  <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
@@ -80,16 +87,16 @@
 
     Paths found in Tiles definitions are relative to the main context.
     -->
-  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
-    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
-    <set-property property="moduleAware" value="true" />
-  </plug-in>
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
     
     <!-- ========================= Validator plugin ================================= -->
-  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-    <set-property
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
             property="pathnames"
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
-  </plug-in>
+    </plug-in>
   
 </struts-config>
