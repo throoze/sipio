@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.ServiciosPlantel" table="servicios_plantel">
+    <composite-id class="orm.ServiciosPlantelId" name="id">
+      <key-property name="plantel" type="string">
+        <column length="10" name="plantel"/>
+      </key-property>
+      <key-property name="tipo" type="string">
+        <column length="25" name="tipo"/>
+      </key-property>
+      <key-property name="cantidad" type="int">
+        <column name="cantidad"/>
+      </key-property>
+      <key-property name="condicion" type="string">
+        <column length="15" name="condicion"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="orm.Plantel" fetch="select" insert="false" name="plantel" update="false">
+      <column length="10" name="plantel" not-null="true"/>
+    </many-to-one>
+    <property name="observacion" type="string">
+      <column length="500" name="observacion"/>
+    </property>
+  </class>
+</hibernate-mapping>

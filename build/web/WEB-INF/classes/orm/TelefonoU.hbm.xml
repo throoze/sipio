@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.TelefonoU" table="telefono_u">
+    <composite-id class="orm.TelefonoUId" name="id">
+      <key-property name="usuario" type="string">
+        <column length="20" name="usuario"/>
+      </key-property>
+      <key-property name="telefono" type="string">
+        <column length="11" name="telefono"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="orm.Usuario" fetch="select" insert="false" name="usuario" update="false">
+      <column length="20" name="usuario" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.PerfilUsuario" table="perfil_usuario" schema="public">
+        <id name="usuario" type="string">
+            <column name="usuario" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario_1" class="pio.hibernate.Usuario" update="false" insert="false" fetch="select">
+            <column name="usuario" length="20" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="cedula" type="int">
+            <column name="cedula" precision="8" scale="0" not-null="true" unique="true" />
+        </property>
+        <property name="primerNombre" type="string">
+            <column name="primer_nombre" length="15" not-null="true" />
+        </property>
+        <property name="segundoNombre" type="string">
+            <column name="segundo_nombre" length="15" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="primer_apellido" length="15" not-null="true" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="segundo_apellido" length="15" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="40" not-null="true" unique="true" />
+        </property>
+        <property name="esSuperusuario" type="char">
+            <column name="es_superusuario" length="1" not-null="true" />
+        </property>
+        <set name="telefonoUs" inverse="true">
+            <key>
+                <column name="usuario" length="20" not-null="true" />
+            </key>
+            <one-to-many class="pio.hibernate.TelefonoU" />
+        </set>
+        <set name="estudianteBachilleratos" inverse="true">
+            <key>
+                <column name="usuario" length="20" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.EstudianteBachillerato" />
+        </set>
+    </class>
+</hibernate-mapping>

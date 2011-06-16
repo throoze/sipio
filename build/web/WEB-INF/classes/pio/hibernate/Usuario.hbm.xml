@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.Usuario" table="usuario" schema="public">
+        <id name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" length="10" not-null="true" />
+        </property>
+        <set name="perfilUsuarios" inverse="true">
+            <key>
+                <column name="usuario" length="20" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.PerfilUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

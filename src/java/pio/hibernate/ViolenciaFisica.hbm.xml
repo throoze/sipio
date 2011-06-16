@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.ViolenciaFisica" table="violencia_fisica" schema="public">
+        <id name="plantel" type="int">
+            <column name="plantel" />
+            <generator class="assigned" />
+        </id>
+        <property name="daniosFisicos" type="char">
+            <column name="danios_fisicos" length="1" not-null="true" />
+        </property>
+        <property name="tiposDanios" type="string">
+            <column name="tipos_danios" length="500" />
+        </property>
+        <property name="armasBlancas" type="char">
+            <column name="armas_blancas" length="1" not-null="true" />
+        </property>
+        <property name="armasFuego" type="char">
+            <column name="armas_fuego" length="1" not-null="true" />
+        </property>
+        <property name="objetosContundentes" type="char">
+            <column name="objetos_contundentes" length="1" not-null="true" />
+        </property>
+        <property name="consecuencias" type="string">
+            <column name="consecuencias" length="1000" />
+        </property>
+        <property name="nivel" type="serializable">
+            <column name="nivel" not-null="true" />
+        </property>
+        <property name="agresoresAgredidos" type="char">
+            <column name="agresores_agredidos" length="1" not-null="true" />
+        </property>
+        <property name="acciones" type="string">
+            <column name="acciones" length="500" />
+        </property>
+        <property name="causas" type="string">
+            <column name="causas" length="100" />
+        </property>
+        <property name="sexo" type="serializable">
+            <column name="sexo" />
+        </property>
+        <property name="seguridad" type="char">
+            <column name="seguridad" length="1" not-null="true" />
+        </property>
+        <property name="cuales" type="string">
+            <column name="cuales" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

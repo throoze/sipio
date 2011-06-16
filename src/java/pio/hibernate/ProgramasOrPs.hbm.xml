@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.ProgramasOrPs" table="programas_or_ps" schema="public">
+        <id name="plantel" type="int">
+            <column name="plantel" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="plantel_1" class="pio.hibernate.Plantel" update="false" insert="false" fetch="select">
+            <column name="plantel" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="aplicacion" type="char">
+            <column name="aplicacion" length="1" not-null="true" />
+        </property>
+        <property name="todosNiveles" type="char">
+            <column name="todos_niveles" length="1" not-null="true" />
+        </property>
+        <property name="cualesNiv" type="string">
+            <column name="cuales_niv" length="500" not-null="true" />
+        </property>
+        <property name="orientacion" type="char">
+            <column name="orientacion" length="1" not-null="true" />
+        </property>
+        <property name="cualesProg" type="string">
+            <column name="cuales_prog" length="500" not-null="true" />
+        </property>
+        <property name="instSinFl" type="char">
+            <column name="inst_sin_fl" length="1" not-null="true" />
+        </property>
+        <property name="cualesInst" type="string">
+            <column name="cuales_inst" length="500" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

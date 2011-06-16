@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.SitEP" table="sit_e_p">
+    <composite-id class="orm.SitEPId" name="id">
+      <key-property name="plantel" type="string">
+        <column length="10" name="plantel"/>
+      </key-property>
+      <key-property name="nroEmb" type="int">
+        <column name="nro_emb"/>
+      </key-property>
+      <key-property name="edad" type="serializable">
+        <column name="edad"/>
+      </key-property>
+      <key-property name="nivel" type="serializable">
+        <column name="nivel"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="orm.Plantel" fetch="select" insert="false" name="plantel" update="false">
+      <column length="10" name="plantel" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.Usuario" table="usuario">
+    <id name="nombreUsuario" type="string">
+      <column length="20" name="nombre_usuario"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="contrasenia" type="string">
+      <column length="10" name="contrasenia" not-null="true"/>
+    </property>
+    <set inverse="true" name="telefonoUs">
+      <key>
+        <column length="20" name="usuario" not-null="true"/>
+      </key>
+      <one-to-many class="orm.TelefonoU"/>
+    </set>
+    <set inverse="true" name="perfilUsuarios">
+      <key>
+        <column length="20" name="usuario" not-null="true" unique="true"/>
+      </key>
+      <one-to-many class="orm.PerfilUsuario"/>
+    </set>
+    <set inverse="true" name="estudianteBachilleratos">
+      <key>
+        <column length="20" name="usuario" not-null="true" unique="true"/>
+      </key>
+      <one-to-many class="orm.EstudianteBachillerato"/>
+    </set>
+  </class>
+</hibernate-mapping>

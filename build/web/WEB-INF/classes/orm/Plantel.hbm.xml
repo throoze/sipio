@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.Plantel" table="plantel">
+    <id name="idPlantel" type="string">
+      <column length="10" name="id_plantel"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombrePlantel" type="string">
+      <column length="100" name="nombre_plantel" not-null="true"/>
+    </property>
+    <property name="tipoInstitucion" type="string">
+      <column length="10" name="tipo_institucion" not-null="true"/>
+    </property>
+    <property name="distritoEscolar" type="int">
+      <column name="distrito_escolar" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="500" name="direccion" not-null="true"/>
+    </property>
+    <property name="emailPlantel" type="string">
+      <column length="40" name="email_plantel"/>
+    </property>
+    <property name="nombreDirector" type="string">
+      <column length="100" name="nombre_director" not-null="true"/>
+    </property>
+    <property name="emailDirector" type="string">
+      <column length="40" name="email_director"/>
+    </property>
+    <property name="telfHabDirector" type="string">
+      <column length="11" name="telf_hab_director"/>
+    </property>
+    <property name="telfCelDirector" type="string">
+      <column length="11" name="telf_cel_director" not-null="true"/>
+    </property>
+    <property name="nombreCoordPio" type="string">
+      <column length="100" name="nombre_coord_pio" not-null="true"/>
+    </property>
+    <property name="emailCoordPio" type="string">
+      <column length="40" name="email_coord_pio"/>
+    </property>
+    <property name="telfHabCoordPio" type="string">
+      <column length="11" name="telf_hab_coord_pio" not-null="true"/>
+    </property>
+    <property name="telfCelCoordPio" type="string">
+      <column length="11" name="telf_cel_coord_pio" not-null="true"/>
+    </property>
+    <property name="observacionesPlantaFisica" type="string">
+      <column length="600" name="observaciones_planta_fisica"/>
+    </property>
+    <set inverse="true" name="obsAAs">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.ObsAA"/>
+    </set>
+    <set inverse="true" name="mencionPlantels">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.MencionPlantel"/>
+    </set>
+    <set inverse="true" name="sitEPs">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.SitEP"/>
+    </set>
+    <set inverse="true" name="serviciosPlantels">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.ServiciosPlantel"/>
+    </set>
+    <set inverse="true" name="estudianteBachilleratos">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.EstudianteBachillerato"/>
+    </set>
+    <set inverse="true" name="numContactoPlantels">
+      <key>
+        <column length="10" name="plantel" not-null="true"/>
+      </key>
+      <one-to-many class="orm.NumContactoPlantel"/>
+    </set>
+  </class>
+</hibernate-mapping>

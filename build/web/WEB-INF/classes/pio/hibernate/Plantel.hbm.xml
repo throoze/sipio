@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.Plantel" table="plantel" schema="public">
+        <id name="idPlantel" type="int">
+            <column name="id_plantel" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrePlantel" type="string">
+            <column name="nombre_plantel" length="100" not-null="true" />
+        </property>
+        <property name="tipoInstitucion" type="string">
+            <column name="tipo_institucion" length="10" not-null="true" />
+        </property>
+        <property name="distritoEscolar" type="int">
+            <column name="distrito_escolar" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="500" not-null="true" />
+        </property>
+        <property name="emailPlantel" type="string">
+            <column name="email_plantel" length="40" />
+        </property>
+        <property name="tlfPlantel" type="string">
+            <column name="tlf_plantel" length="11" />
+        </property>
+        <property name="faxPlantel" type="string">
+            <column name="fax_plantel" length="11" />
+        </property>
+        <property name="nombreDirector" type="string">
+            <column name="nombre_director" length="100" not-null="true" />
+        </property>
+        <property name="emailDirector" type="string">
+            <column name="email_director" length="40" />
+        </property>
+        <property name="telfHabDirector" type="string">
+            <column name="telf_hab_director" length="11" />
+        </property>
+        <property name="telfCelDirector" type="string">
+            <column name="telf_cel_director" length="11" />
+        </property>
+        <property name="nombreCoordPio" type="string">
+            <column name="nombre_coord_pio" length="100" not-null="true" />
+        </property>
+        <property name="emailCoordPio" type="string">
+            <column name="email_coord_pio" length="40" />
+        </property>
+        <property name="telfHabCoordPio" type="string">
+            <column name="telf_hab_coord_pio" length="11" />
+        </property>
+        <property name="telfCelCoordPio" type="string">
+            <column name="telf_cel_coord_pio" length="11" />
+        </property>
+        <set name="obsAAs" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.ObsAA" />
+        </set>
+        <set name="mencionPlantels" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" />
+            </key>
+            <one-to-many class="pio.hibernate.MencionPlantel" />
+        </set>
+        <set name="situacionEmbarazoses" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.SituacionEmbarazos" />
+        </set>
+        <set name="asistenciaInstitucions" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.AsistenciaInstitucion" />
+        </set>
+        <set name="programasOrPses" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.ProgramasOrPs" />
+        </set>
+        <set name="charlas" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" />
+            </key>
+            <one-to-many class="pio.hibernate.Charla" />
+        </set>
+        <set name="serviciosPlantels" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.ServiciosPlantel" />
+        </set>
+        <set name="estudianteBachilleratos" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" />
+            </key>
+            <one-to-many class="pio.hibernate.EstudianteBachillerato" />
+        </set>
+        <set name="daniosInstitucions" inverse="true">
+            <key>
+                <column name="plantel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="pio.hibernate.DaniosInstitucion" />
+        </set>
+    </class>
+</hibernate-mapping>

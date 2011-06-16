@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.EstudianteServCom" table="estudiante_serv_com">
+    <id name="carnet" type="string">
+      <column length="8" name="carnet"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="cedula" type="int">
+      <column name="cedula" not-null="true" unique="true"/>
+    </property>
+    <property name="primerNombre" type="string">
+      <column length="15" name="primer_nombre" not-null="true"/>
+    </property>
+    <property name="segundoNombre" type="string">
+      <column length="15" name="segundo_nombre"/>
+    </property>
+    <property name="primerApellido" type="string">
+      <column length="15" name="primer_apellido" not-null="true"/>
+    </property>
+    <property name="segundoApellido" type="string">
+      <column length="15" name="segundo_apellido"/>
+    </property>
+    <property name="numeroTotalHoras" type="int">
+      <column name="numero_total_horas" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

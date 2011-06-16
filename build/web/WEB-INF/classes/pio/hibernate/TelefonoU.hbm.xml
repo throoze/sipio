@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.TelefonoU" table="telefono_u" schema="public">
+        <composite-id name="id" class="pio.hibernate.TelefonoUId">
+            <key-property name="usuario" type="string">
+                <column name="usuario" length="20" />
+            </key-property>
+            <key-property name="telefono" type="string">
+                <column name="telefono" length="11" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perfilUsuario" class="pio.hibernate.PerfilUsuario" update="false" insert="false" fetch="select">
+            <column name="usuario" length="20" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

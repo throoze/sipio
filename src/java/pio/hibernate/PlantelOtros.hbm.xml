@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.PlantelOtros" table="plantel_otros" schema="public">
+        <id name="plantel" type="int">
+            <column name="plantel" />
+            <generator class="assigned" />
+        </id>
+        <property name="observacionesPlantaFisica" type="string">
+            <column name="observaciones_planta_fisica" length="1000" />
+        </property>
+        <property name="matricula" type="int">
+            <column name="matricula" not-null="true" />
+        </property>
+        <property name="asistentesCharla" type="int">
+            <column name="asistentes_charla" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

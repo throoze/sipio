@@ -1,0 +1,93 @@
+/* 
+    Document   : usbstile
+    Created on : May 19, 2011, 10:20:54 AM
+    Author     : erick
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#header
+{	background: #e4e4e4 url(images/header.jpg) no-repeat top left;
+	width: 747px;
+	height: 110px;
+	padding: 0px;
+	margin: 0 auto;
+}
+
+
+body {
+  
+   background: #f6f6f6  url(images/biblio.jpg)no-repeat top right ;
+   font-family: Verdana, Arial, sans-serif;
+   font-size: smaller;
+   padding: 50px;
+   color: #000000;
+   width: 650px;
+}
+
+h1 {
+   letter-spacing: 6px;
+   font-size: 1.6em;
+   color:#191970;
+   font-weight: bold;
+}
+
+h2 {
+   text-align: left;
+   letter-spacing: 6px;
+   font-size: 1.4em;
+   color: #be7429;
+   font-weight: normal;
+   width: 450px;
+}
+
+table {
+   width: 550px;
+   padding: 10px;
+   background-color: #F0F8FF;
+   font-family: sans-serif;
+   border-style: double;
+   outline-color: #009;
+   outline-style: double;
+  
+}
+
+
+td {
+   padding: 10px;
+}
+
+a {
+  color: #9ACD32;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.popupBox {
+  position: absolute;
+  top: 170px;
+  left: 140px;
+}
+
+.popupCell {
+   background-color: #9ACD32;
+}
+
+.popupCell:hover {
+  background-color: #9ACD32;
+}
+
+.popupItem {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+

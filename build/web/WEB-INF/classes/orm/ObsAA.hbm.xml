@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.ObsAA" table="obs_a_a">
+    <composite-id class="orm.ObsAAId" name="id">
+      <key-property name="plantel" type="string">
+        <column length="10" name="plantel"/>
+      </key-property>
+      <key-property name="profAsig" type="char">
+        <column length="1" name="prof_asig"/>
+      </key-property>
+      <key-property name="asignaturas" type="string">
+        <column length="200" name="asignaturas"/>
+      </key-property>
+      <key-property name="nivel" type="serializable">
+        <column name="nivel"/>
+      </key-property>
+      <key-property name="motivo" type="string">
+        <column length="500" name="motivo"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="orm.Plantel" fetch="select" insert="false" name="plantel" update="false">
+      <column length="10" name="plantel" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

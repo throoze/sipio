@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 03:01:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="pio.hibernate.SituacionEmbarazos" table="situacion_embarazos" schema="public">
+        <id name="plantel" type="int">
+            <column name="plantel" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="plantel_1" class="pio.hibernate.Plantel" update="false" insert="false" fetch="select">
+            <column name="plantel" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="nroEmb" type="int">
+            <column name="nro_emb" not-null="true" />
+        </property>
+        <property name="edad" type="serializable">
+            <column name="edad" />
+        </property>
+        <property name="nivel" type="serializable">
+            <column name="nivel" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="piodb" match-schema="public"/>
+  <table-filter match-name="estudiante_bachillerato"/>
+  <table-filter match-name="plantel_otros"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="obs_a_a"/>
+  <table-filter match-name="danios_institucion"/>
+  <table-filter match-name="perfil_usuario"/>
+  <table-filter match-name="estudiante_serv_com"/>
+  <table-filter match-name="plantel"/>
+  <table-filter match-name="charla"/>
+  <table-filter match-name="telefono_u"/>
+  <table-filter match-name="situacion_embarazos"/>
+  <table-filter match-name="programas_or_ps"/>
+  <table-filter match-name="mencion_plantel"/>
+  <table-filter match-name="violencia_verbal"/>
+  <table-filter match-name="servicios_plantel"/>
+  <table-filter match-name="violencia_fisica"/>
+  <table-filter match-name="asistencia_institucion"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/06/2011 02:15:04 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="orm.PerfilUsuario" table="perfil_usuario">
+    <id name="usuario" type="string">
+      <column length="20" name="usuario"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="orm.Usuario" fetch="select" insert="false" name="usuario_1" update="false">
+      <column length="20" name="usuario" not-null="true" unique="true"/>
+    </many-to-one>
+    <property name="cedula" type="int">
+      <column name="cedula" not-null="true" precision="8" scale="0" unique="true"/>
+    </property>
+    <property name="primerNombre" type="string">
+      <column length="15" name="primer_nombre" not-null="true"/>
+    </property>
+    <property name="segundoNombre" type="string">
+      <column length="15" name="segundo_nombre"/>
+    </property>
+    <property name="primerApellido" type="string">
+      <column length="15" name="primer_apellido" not-null="true"/>
+    </property>
+    <property name="segundoApellido" type="string">
+      <column length="15" name="segundo_apellido"/>
+    </property>
+    <property name="email" type="string">
+      <column length="40" name="email" not-null="true" unique="true"/>
+    </property>
+    <property name="esSuperusuario" type="string">
+      <column length="2" name="es_superusuario" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

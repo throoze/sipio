@@ -1,0 +1,211 @@
+/* 
+    Document   : estilodiv
+    Created on : May 18, 2011, 7:08:56 PM
+    Author     : erick
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.contenedor {
+	width: 955px;
+	height: 400px;
+}
+.contenedor_left {
+	float: left;
+	height: 450px;
+	width: 345px;
+}
+.contenedor_top {
+	float: left;
+	height: 93px;
+	width: 955px;
+}
+.contenedor_middle {
+	float: left;
+	height: 450px;
+	width: 213px;
+}
+.contenedor_right {
+	float: left;
+	height: 450px;
+	width: 380px;
+}
+
+.titulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #134D86;
+	text-align: justify;
+}
+.portales {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.titulo1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #134D86;
+	font-weight: 100;
+	text-align: left;
+}
+.menuazul {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #134D86;
+}
+.submenu {
+
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #5087BD;
+}
+
+.titular {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #5087BD;
+}
+.noticias {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+.parrafo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+A.men_negro {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+A.men_negro:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_negro:active {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_negro:hover {
+	color: #CCCCCC;
+	text-decoration:none;
+}
+A.men_azul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5287BD;
+	text-decoration: none;
+	font-weight: bold;
+}
+A.men_azul:visited {
+	color: #5287BD;
+	text-decoration: none;
+}
+A.men_azul:active {
+	color: #5287BD;
+	text-decoration: none;
+}
+A.men_azul:hover {
+	color: #5287BD;
+	text-decoration:underline;
+}
+A.men_menu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+A.men_menu:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_menu:active {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_menu:hover {
+	color: #5287BD;
+	text-decoration:none;
+}
+A.men_decoazul {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #5287BD;
+	text-decoration: none;
+	font-weight: bold;
+}
+A.men_decoazul:visited {
+	color: #5287BD;
+	text-decoration: none;
+}
+A.men_decoazul:active {
+	color: #5287BD;
+	text-decoration: none;
+}
+A.men_decoazul:hover {
+	color: #5287BD;
+	text-decoration:underline;
+}
+.titulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #5287BD;
+}
+A.men_portal {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+A.men_portal:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_portal:active {
+	color: #000000;
+	text-decoration: none;
+}
+A.men_portal:hover {
+	color: #5287BD;
+	text-decoration:none;
+}
+.titulos_home {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #5087BD;
+	font-weight: bold;
+}
+.texto2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	text-align: justify;
+}
+.texto1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	text-align: justify;
+}
