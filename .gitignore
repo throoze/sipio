@@ -1,0 +1,10 @@
+.gitignore
+dist/sigpio.war
+nbproject/private/private.properties
+nbproject/proyect.properties
+build/web/WEB-INF/classes/.netbeans_automatic_build
+build/web/WEB-INF/classes/orm/*
+*.class
+build/*
+*hibernate.cfg.xml
+*hibernate.reveng.xml
