@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="consultarAlForm" type="consultarAlForm"/>
         <form-bean name="ListarPlantForm" type="ListarPlantForm"/>
         <form-bean name="RegisterUsrForm" type="RegisterUsrForm"/>
         <form-bean name="RegisterInForm" type="RegisterInForm"/>
@@ -52,7 +53,14 @@
         <action name="ListarPlantForm" path="/listarplanteles" scope="request" type="ListarPlantAction" validate="false">
             <forward name="success" path="/listarPlanteles.jsp"/>
         </action>
-      
+        <action name="consultarAlForm" path="/consultaral" scope="request" type="consultarAlAction" validate="false" >
+            <forward name="success" path="/modificarAl.jsp"/>
+        </action>
+          
+        <action name="consultarAlForm" path="/modifical" scope="request" type="consultarAlAction" validate="false" >
+            <forward name="success" path="/registerSuccess.jsp"/>
+        </action>
+            
         
     </action-mappings>
     

@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +18,15 @@ import org.apache.struts.action.ActionMessage;
 public class ListarPlantForm extends org.apache.struts.action.ActionForm {
     
     private List planteles;
+    private ArrayList nombrePlanteles;
+
+    public ArrayList getNombrePlanteles() {
+        return nombrePlanteles;
+    }
+
+    public void setNombrePlanteles(ArrayList nombrePlanteles) {
+        this.nombrePlanteles = nombrePlanteles;
+    }
 
     public List getPlanteles() {
         return planteles;
