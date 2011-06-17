@@ -50,6 +50,26 @@ public class Plantel  implements java.io.Serializable {
         this.nombreDirector = nombreDirector;
         this.nombreCoordPio = nombreCoordPio;
     }
+    
+    public Plantel(int idPlantel, String nombrePlantel, String tipoInstitucion, int distritoEscolar, String direccion, String emailPlantel, String tlfPlantel, String faxPlantel, String nombreDirector, String emailDirector, String telfHabDirector, String telfCelDirector, String nombreCoordPio, String emailCoordPio, String telfHabCoordPio, String telfCelCoordPio) {
+       this.idPlantel = idPlantel;
+       this.nombrePlantel = nombrePlantel;
+       this.tipoInstitucion = tipoInstitucion;
+       this.distritoEscolar = distritoEscolar;
+       this.direccion = direccion;
+       this.emailPlantel = emailPlantel;
+       this.tlfPlantel = tlfPlantel;
+       this.faxPlantel = faxPlantel;
+       this.nombreDirector = nombreDirector;
+       this.emailDirector = emailDirector;
+       this.telfHabDirector = telfHabDirector;
+       this.telfCelDirector = telfCelDirector;
+       this.nombreCoordPio = nombreCoordPio;
+       this.emailCoordPio = emailCoordPio;
+       this.telfHabCoordPio = telfHabCoordPio;
+       this.telfCelCoordPio = telfCelCoordPio;
+    }
+    
     public Plantel(int idPlantel, String nombrePlantel, String tipoInstitucion, int distritoEscolar, String direccion, String emailPlantel, String tlfPlantel, String faxPlantel, String nombreDirector, String emailDirector, String telfHabDirector, String telfCelDirector, String nombreCoordPio, String emailCoordPio, String telfHabCoordPio, String telfCelCoordPio, Set<ObsAA> obsAAs, Set<MencionPlantel> mencionPlantels, Set<SituacionEmbarazos> situacionEmbarazoses, Set<AsistenciaInstitucion> asistenciaInstitucions, Set<ProgramasOrPs> programasOrPses, Set<Charla> charlas, Set<ServiciosPlantel> serviciosPlantels, Set<EstudianteBachillerato> estudianteBachilleratos, Set<DaniosInstitucion> daniosInstitucions) {
        this.idPlantel = idPlantel;
        this.nombrePlantel = nombrePlantel;
