@@ -7,7 +7,9 @@
 
 <struts-config>
     <form-beans>
+
         <form-bean name="consultarAlForm" type="consultarAlForm"/>
+        <form-bean name="UploadStudentsForm" type="loadStudents.UploadStudentsForm"/>
         <form-bean name="ListarPlantForm" type="ListarPlantForm"/>
         <form-bean name="RegisterUsrForm" type="RegisterUsrForm"/>
         <form-bean name="RegisterInForm" type="RegisterInForm"/>
@@ -61,6 +63,8 @@
             <forward name="success" path="/registerSuccess.jsp"/>
         </action>
             
+        <action input="/cargarplanteles" name="UploadStudentsForm" path="/uploadStudents" scope="request" type="loadStudents.UploadStudentsAction"/>
+      
         
     </action-mappings>
     

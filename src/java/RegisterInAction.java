@@ -137,6 +137,10 @@ public class RegisterInAction extends org.apache.struts.action.Action {
       return mapping.findForward(FAILURE);
     }
 
+    if(numEmbarazadas == null){
+      numEmbarazadas = "0";
+    }
+    
     if (!numEmbarazadas.equals("") && Integer.parseInt(numEmbarazadas) < 0
             && ((edadEmbarazada == null || edadEmbarazada.length <= 0)
             || nivelEmbarazada == null || nivelEmbarazada.length <= 0)) {
@@ -193,10 +197,15 @@ public class RegisterInAction extends org.apache.struts.action.Action {
             && (danhoInstalacionCasos == null || danhoInstalacionCasos.length <= 0)) {
       return mapping.findForward(FAILURE);
     }
+    
+    if(numLiceo == null){
+      numLiceo = "1";
+    }
+    
     int idplantel = 1;
     PlantelHelper plh = new PlantelHelper();
     if (!plh.existePlantel(nins)) {
-      Plantel pl = new Plantel(idplantel, nins, instituto, Integer.parseInt(numLiceo), dir, nombreDir, nombreCoord);
+      Plantel pl = new Plantel(idplantel, nins, instituto, Integer.parseInt(numLiceo), dir, nombreDir, nombreCoord, fax, nombreDir, emailDir, tlfDir, celDir, nombreCoord, emailCoord, tlfCoord, celCoord);
       plh.agrPlantel(pl);
     } else {
       return mapping.findForward(FAILURE);

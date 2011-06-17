@@ -1,6 +1,18 @@
 .gitignore
+<<<<<<< HEAD
 src/java/pio/hibernate/hibernate.cfg.xml
 build/web/WEB-INF/classes/.netbeans_automatic_build
 build/web/WEB-INF/classes/orm/*
 
 
+=======
+dist/sigpio.war
+nbproject/private/private.properties
+nbproject/proyect.properties
+build/web/WEB-INF/classes/.netbeans_automatic_build
+build/web/WEB-INF/classes/orm/*
+*.class
+build/*
+*hibernate.cfg.xml
+*hibernate.reveng.xml
+>>>>>>> 9aae63823955fdb1e5c0d827ee969cdc0625b9d7

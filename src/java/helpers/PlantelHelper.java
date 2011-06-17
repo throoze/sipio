@@ -37,8 +37,13 @@ public class PlantelHelper {
   
   public void agrPlantel(Plantel pl){
     org.hibernate.Transaction tx = session.beginTransaction();
+    try{
     session.save((Object)pl);
     tx.commit();
+    } catch (Exception e){
+      e.printStackTrace();
+      e.getCause().toString();
+    }
   }
   
  public List listarPlanteles() {
