@@ -1,0 +1,6 @@
+.gitignore
+src/java/pio/hibernate/hibernate.cfg.xml
+build/web/WEB-INF/classes/.netbeans_automatic_build
+build/web/WEB-INF/classes/orm/*
+
+
