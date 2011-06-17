@@ -3,22 +3,20 @@
  * and open the template in the editor.
  */
 
-import helpers.PlantelHelper;
-import java.util.ArrayList;
-import java.util.List;
+import helpers.EstudianteHelper;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import pio.hibernate.Plantel;
+import pio.hibernate.EstudianteBachillerato;
 
 /**
  *
  * @author giuseppe
  */
-public class ListarPlantAction extends org.apache.struts.action.Action {
+public class consultarAlAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
@@ -38,19 +36,24 @@ public class ListarPlantAction extends org.apache.struts.action.Action {
             throws Exception {
 
         HttpSession session = request.getSession();
-        ListarPlantForm formbean = (ListarPlantForm) form;
-        PlantelHelper ush = new PlantelHelper();
-        List planteles = ush.listarPlanteles();
-        ArrayList nombPlanteles = new ArrayList();
-        session.setAttribute("planteles", planteles);
-        for (int i=0; i<planteles.size(); i++) {
-            Plantel pl = (Plantel) planteles.get(i);
-            String nombre = pl.getNombrePlantel();
-            nombPlanteles.add(nombre);
-        }
-        formbean.setNombrePlanteles(nombPlanteles);
-        session.setAttribute("nombplan", nombPlanteles); 
+        consultarAlForm formBean = (consultarAlForm) form;
+        String cedula = formBean.getCedula();
+        EstudianteHelper EH = new EstudianteHelper();
+        EstudianteBachillerato pp = EH.getEstudiante(cedula);
+        
+        form = new RegisterAlForm();
+        RegisterAlForm formBean2 = (RegisterAlForm) form;
+        
+        formBean.setUsuario(pp.getUsuario());
+        formBean.setNombre((pp.getPerfilUsuario()).getPrimerNombre());
+        formBean.setApellido((pp.getPerfilUsuario()).getPrimerApellido());
+        formBean.setEmail((pp.getPerfilUsuario()).getEmail());
+        formBean.setPlantel((pp.getPlantel()).getNombrePlantel());
+        formBean.setSexo(pp.getSexo());
+        formBean.setCarrera1(pp.getCarrera1());
+        formBean.setCarrera2(pp.getCarrera2());
+        formBean.setCarrera3(pp.getCarrera3());
+ 
         return mapping.findForward(SUCCESS);
-
     }
 }

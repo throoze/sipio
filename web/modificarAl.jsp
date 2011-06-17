@@ -1,4 +1,5 @@
 
+<%@page import="pio.hibernate.EstudianteBachillerato"%>
 <%@page import="pio.hibernate.Plantel"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -9,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head> 
         <%
-            String uname = (String) session.getAttribute("uname");
+            String uname = (String) session.getAttribute("uname");            
         %>
         <meta name="keywords" content="" /> 
         <meta name="description" content="" /> 
@@ -84,9 +85,9 @@
                 </div> 
                 <div id="content"> 
                     <h1> 
-                        Registro Estudiante
+                        Datos Estudiante
                     </h1> 
-                    <html:form action="/registerAl">
+                    <html:form action="/modifical">
                         <table>
                             <tr>
                                 <td>Nombres:</td>

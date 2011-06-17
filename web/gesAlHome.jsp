@@ -87,7 +87,7 @@
                         Registrar Estudiante
                     </html:link> <br/> 
           <a href="#">Registrar Estudiantes (Archivo Excel)</a><br/>
-          <a href="#">Consultar Estudiante</a>
+          <a href="consultarAl.jsp">Consultar Estudiante</a>
         </div> 
       </div> 
       <!-- end #page --> 
