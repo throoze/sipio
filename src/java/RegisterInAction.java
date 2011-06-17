@@ -199,13 +199,13 @@ public class RegisterInAction extends org.apache.struts.action.Action {
     }
     
     if(numLiceo == null){
-      numLiceo = "0";
+      numLiceo = "1";
     }
     
     int idplantel = 1;
     PlantelHelper plh = new PlantelHelper();
     if (!plh.existePlantel(nins)) {
-      Plantel pl = new Plantel(idplantel, nins, instituto, Integer.parseInt(numLiceo), dir, nombreDir, nombreCoord);
+      Plantel pl = new Plantel(idplantel, nins, instituto, Integer.parseInt(numLiceo), dir, nombreDir, nombreCoord, fax, nombreDir, emailDir, tlfDir, celDir, nombreCoord, emailCoord, tlfCoord, celCoord);
       plh.agrPlantel(pl);
     } else {
       return mapping.findForward(FAILURE);
