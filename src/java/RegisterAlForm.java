@@ -3,13 +3,17 @@
  * and open the template in the editor.
  */
 
+import helpers.PlantelHelper;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import pio.hibernate.Plantel;
 
 /**
  *
@@ -17,6 +21,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class RegisterAlForm extends org.apache.struts.action.ActionForm {
 
+    private List listaPlanteles;
     private String nombre;
     private String apellido;
     private String cedula;
@@ -48,6 +53,16 @@ public class RegisterAlForm extends org.apache.struts.action.ActionForm {
 
     public String getError0() {
         return error0;
+    }
+    
+    public List getListaPlanteles() {
+        PlantelHelper pl = new PlantelHelper();
+        listaPlanteles = pl.listarPlanteles();
+        return listaPlanteles;
+    }
+
+    public void setListaPlanteles(List listaPlanteles) {
+        this.listaPlanteles = listaPlanteles;
     }
 
     public void setError0(String error0) {

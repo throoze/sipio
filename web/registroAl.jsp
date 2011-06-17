@@ -10,7 +10,6 @@
     <head> 
         <%
             String uname = (String) session.getAttribute("uname");
-            List pl = (List) session.getAttribute("planteles");
         %>
         <meta name="keywords" content="" /> 
         <meta name="description" content="" /> 
@@ -115,11 +114,10 @@
                             <tr>
                                 <td>Plantel:</td>
                                 <td>
-                            <logic:present name="plantel" > 
-                                <html:select name="ListarPlantForm" property="planteles"> 
-                                    <html:options collection="planteles" property="nombrePlantel" labelProperty="nombrePlantel" /> 
-                                </html:select> 
-                            </logic:present>
+                                    <html:select name="RegisterAlForm" property="nombrePlantel" >
+                                        <html:option value="0">Plantel</html:option>
+                                        <html:optionsCollection name="RegisterAlForm" property="listaPlanteles" label="nombrePlantel" value="nombrePlantel" />
+                                    </html:select>
                                 </td>
                             <tr/> 
                             <tr>
