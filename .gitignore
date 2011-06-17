@@ -1,3 +1,4 @@
+.gitignore
 dist/sigpio.war
 nbproject/private/private.properties
 nbproject/proyect.properties
